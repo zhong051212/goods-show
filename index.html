@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>好物商品展示网站</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="header">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>
+                        <img src="assets/images/logo.png"alt="优选好物" class="site-logo"></h1>
+                         <p>精品好物.品质之选</p>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="nav-link active">首页</a></li>
+                        <li><a href="#about" class="nav-link">关于本店</a></li>
+                        <li><a href="#products" class="nav-link">商品列表</a></li>
+                        <li><a href="#gallery" class="nav-link">商品图集</a></li>
+                        <li><a href="#contact" class="nav-link">联系我们</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <button class="btn-login" id="loginBtn">
+                            <i class="fas fa-user"></i> 登录/注册
+                        </button>
+                    </div>
+            </nav>
+       </header>
+       <!-- 轮播图 -->
+        <section class="hero" id="home">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide active">
+                        <img src="assets/images/1.jpg" alt="精选好物封面图1">
+                         <div class="slide-content">
+                            <h2>精选好物，品质优选</h2>
+                            <p>用心挑选.实惠价格.贴心服务</p>
+                         </div>
+                    </div>
+                    <div class="slide">
+                        <img src="assets/images/2.jpg" alt="精选好物封面图2">
+                        <div class="slide-content">
+                            <h2>潮流数码新品上线</h2>
+                            <p>多款数码配件，满足日常使用需求</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="assets/images/3.jpg" alt="精选好物封面图3">
+                        <div class="slide-content">
+                            <h2>品质生活好物</h2>
+                            <p>简约实用，提升日常幸福感 </p>
+                        </div>
+                    </div>
+                     <div class="slide">
+                        <img src="assets/images/4.jpg" alt="精选好物封面图4">
+                        <div class="slide-content">
+                            <h2>欢迎进店选购</h2>
+                            <p>超多商品持续上新，期待你的挑选</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- 轮播图控制按钮 -->
+                 <button class="slider-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                 </button>
+                 <button class="slider-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                 </button>
+
+                  <!-- 指示器 -->
+                   <div class="slider-indicators">
+                       <span class="indicator active" data-slide="0"></span>
+                       <span class="indicator" data-slide="1"></span>
+                       <span class="indicator" data-slide="2"></span>
+                       <span class="indicator" data-slide="3"></span>
+                   </div>
+            </div>
+        </section>
+        <!-- TAB栏切换部分 -->
+         <section class="products-section" id="products">
+            <div class="container">
+                 <h2 class="section-title">商品列表</h2>
+                 <p class="section-subtitle">挑选心仪好物，享受优质购物体验</p>
+
+                 <div class="tabs-container">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="hot">热门推荐</button>
+                        <button class="tab-btn" data-tab="new">新品上市</button>
+                        <button class="tab-btn" data-tab="sale">限时折扣</button>
+                    </div>
+
+                    <div class="tabs-content">
+                        <!-- 热门推荐 -->
+                         <div class="tab-panel active" id="hot-tab">
+                            <div class="products-grid">
+                                <!-- 产品将通过JavaScript动态生成 -->
+                            </div>
+                         </div>
+
+                         <!-- 新品上市 -->
+                        <div class="tab-panel" id="new-tab">
+                            <div class="products-grid">
+                                <!-- 产品将通过JavaScript动态生成 -->
+                            </div>
+                        </div>
+                        <!-- 限时折扣 -->
+                         <div class="tab-panel" id="sale-tab">
+                            <div class="products-grid">
+                                <!-- 产品将通过JavaScript动态生成 -->
+                            </div>
+                         </div>
+                    </div>
+                 </div>
+
+                 <!-- 商品筛选和排序 -->
+                  <div class="filter-sort-container">
+                    <div class="filter-controls">
+                        <div class="filter-group">
+                             <label for="priceFilter">价格范围：</label>
+                             <div class="price-range">
+                                 <span id="minPrice">¥0</span>
+                                 <input type="range" id="priceFilter" min="0" max="500" value="500" step="10">
+                                 <span id="maxPrice">¥500</span>
+                             </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="sortSelect">排序方式：</label>
+                            <select id="sortSelect">
+                                <option value="default">默认排序</option>
+                                <option value="price-asc">价格从低到高</option>
+                                <option value="price-desc">价格从高到低</option>
+                                <option value="popularity">人气最高</option>
+                                <option value="newest">最新上架</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="filter-results">
+                        <p>找到 <span id="productCount">0</span> 件商品</p>
+                        <button id="resetFilter" class="btn-secondary">重置筛选</button>
+                    </div>
+                  </div>
+            </div>
+         </section>
+
+         <!-- 其他内容区域 -->
+          <section class="about-section" id="about">
+            <div class="container">
+                <h2 class="section-title">关于本店</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>好物小店.用心选品好物</h3>
+                        <p>本店专注挑选高性价比商品，严选品质，注重实用性与颜值，为大家带来好用不贵的各类好物。</p>
+                        <p>坚持用心挑选每一件商品，拒绝劣质产品，希望给大家带来舒服省心的购物体验。</p>
+                        <div class="features">
+                            <div class="feature">
+                                <i class="fas fa-sun"></i>
+                                <h4>品质保障</h4>
+                                <p>严格筛选货源，把控商品质量</p>
+                            </div>
+                             <div class="feature">
+                                <i class="fas fa-heart"></i>
+                            <h4>贴心服务</h4>
+                            <p>认真对待每一位顾客的需求</p>
+                             </div>
+                             <div class="feature">
+                                <i class="fas fa-gift"></i>
+                                <h4>惊喜好物</h4>
+                                <p>持续上新，不断带来优质商品</p>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/images/5.jpg" alt="店铺实拍">
+                    </div>
+                </div>
+            </div>
+          </section>
+
+          <!-- 图集部分 -->
+           <section class="gallery-section" id="gallery">
+            <div class="container">
+                 <h2 class="section-title">产品图集</h2>
+                 <p class="section-subtitle">查看更多商品细节</p>
+                 <div class="gallery-grid">
+                    <img src="assets/images/1.jpg" alt="商品实拍图1">
+                 </div>
+                 <div class="gallery-item">
+                    <img src="assets/images/2.jpg" alt="商品实拍图2">
+                 </div>
+                 <div class="gallery-item">
+                    <img src="assets/images/3.jpg" alt="商品实拍图3">
+                 </div>
+                 <div class="gallery-item">
+                    <img src="assets/images/4.jpg" alt="商品实拍图4">
+                 </div>
+            </div>
+           </section>
+
+           <!-- 联系部分 -->
+            <section class="contact-section" id="contact">
+                <div class="container">
+                    <h2 class="section-title">在线咨询</h2>
+                    <p class="section-subtitle">有任何商品问题，欢迎咨询</p>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <h3><i class="fas fa-info-circle"></i> 客服渠道</h3>
+                            <u1>
+                                <li><i class="fas fa-envelope"></i> service@shop-demo.com</li>
+                                <li><i class="fas fa-phone"></i> 400-123-7890</li>
+                                <li><i class="fas fa-map-marker-alt"></i> 广东省深圳市</li>
+                            </u1>
+                        </div>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <input type="text" placeholder="您的称呼" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="您的邮箱" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="写下你的商品咨询" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">提交咨询</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+             <!-- 页脚 -->
+              <footer class="footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <h3><img src="assets/images/logo.png" alt="商品 Logo" style="height: 1em; vertical-align: middle;"> 优选商城</h3>
+                            <p>精选好物，用心做好每一件商品</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-weibo"></i></a>
+                                <a href="#"><i class="fab fa-weixin"></i></a>
+                                <a href="#"><i class="fab fa-bilibili"></i></a>
+                                <a href="#"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                        <div class="footer-section">
+                            <h4>快速链接</h4>
+                            <u1>
+                                <li><a href="#home">首页</a></li>
+                                <li><a href="#about">店铺介绍</a></li>
+                                <li><a href="#products">商品列表</a></li>
+                                <li><a href="#gallery">商品图集</a></li>
+                            </u1>
+                        </div>
+                        <div class="footer-section">
+                            <h4>联系我们</h4>
+                            <u1>
+                                <li><i class="fas fa-envelope"></i> service@shop-demo.com</li>
+                                <li><i class="fas fa-phone"></i> 400-123-7890</li>
+                                <li><i class="fas fa-map-marker-alt"></i> 广东省深圳市</li>
+                            </u1>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2026 优品商城. 本网站为前端作品集项目，仅供学习交流使用。</p>
+                    </div>
+                </div>
+              </footer>
+
+               <!-- 登录模态框 -->
+                <div class="modal-overlay" id="loginModal">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-user"></i> 会员登录</h3>
+                            <button class="modal-close" id="closeModal">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="loginForm">
+                                <div class="form-group">
+                                    <label for="username">账号/邮箱</label>
+                                    <input type="text" id="username" name="username" placeholder="请输入账号或邮箱" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">密码</label>
+                                    <div class="password-input">
+                                        <input type="password" id="password" name="password" placeholder="请输入密码" required>
+                                        <button type="button" class="toggle-password" id="togglePassword">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="form-options">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="remember">
+                                        <span>记住我</span>
+                                    </label>
+                                    <a href="#" class="forgot-password">忘记密码？</a>
+                                </div>
+
+                                <button type="submit" class="btn-submit">登录</button>
+
+                                <div class="form-divider">
+                                    <span>或</span>
+                                </div>
+
+                                <button type="button" class="btn-register">
+                                    <i class="fas fa-user-plus"></i> 注册新账户
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="js/script.js"></script>
+</body>
+</html>
